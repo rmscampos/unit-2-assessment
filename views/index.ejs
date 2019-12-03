@@ -6,7 +6,7 @@
   </head>
   <body>
     <h1>To Do List</h1>
-    <% if (todo) { %>
+    <% if (todo.length > 0) { %>
     <h3><%= todo.todo && todo.done %></h3>
     <% } else { %>
     <h3><%= "There are no To Dos yet!" %></h3>
@@ -22,9 +22,12 @@
 
   </ul>
 <hr>
-    <form action="data/todos" method="POST" autocomplete="off">
+    <form action="/todos/" method="POST" autocomplete="off">
       <input type="text" name="todo">
       <button type="submit">Add Todo</button>
+    </form>
+    <form action="/todos/" class="delete-form" method="DELETE">
+      <button type="submit">X</button>
     </form>
   </body>
 </html>

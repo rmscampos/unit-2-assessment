@@ -19,7 +19,7 @@ function create(req, res) {
   }
 
   function index(req, res) {
-    res.render('todos/index', {
+    res.render('/', {
         todos: Todo.getAll()
     });
 }
