@@ -1,16 +1,11 @@
 var express = require('express');
 var router = express.Router();
-var Todo = require('../data/todo');
+var todosCtrl = require('../controllers/todos');
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
+/* GET todos listing. */
 
-router.post('/', function(req, res) {
-  req.body.done = false;
-  Todo.create(req.body);
-  res.redirect('/');
-})
+router.get('/', todosCtrl.index);
+router.post('/', todosCtrl.create);
+router.delete('/:id', todosCtrl.delete);
 
 module.exports = router;
